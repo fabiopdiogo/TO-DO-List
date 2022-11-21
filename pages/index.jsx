@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Background from "../src/components/layout/Background"
 import Checkbox from "../src/components/Checkbox/Checkbox"
+import ControlledTextarea from "../src/components/inputs/ControlledTextarea"
 
 const CardInput = styled.div`
   display: flex;
@@ -8,6 +9,8 @@ const CardInput = styled.div`
   height: 60px;
   background-color: white;  
   border-radius: 8px;
+  align-items: center;
+  margin-top: 150px;
 `
 
 function HomePage(){
@@ -16,7 +19,12 @@ function HomePage(){
       <Background>          
         <CardInput>
             <Checkbox />
-            <p>Hello World</p>
+            <ControlledTextarea
+              type="text"
+              name="new_task" 
+              id="new_task" 
+              placeholder="Create a new todo..."
+              />
         </CardInput>
       </Background>
     </div>
