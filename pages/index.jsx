@@ -1,9 +1,10 @@
 import styled from "styled-components"
+import { useState } from 'react'
 import Background from "../src/components/layout/Background"
 import Checkbox from "../src/components/Checkbox/Checkbox"
 import ControlledTextarea from "../src/components/inputs/ControlledTextarea"
 
-const CardInput = styled.div`
+const CardInput = styled.form`
   display: flex;
   width: 600px;
   height: 60px;
@@ -13,18 +14,24 @@ const CardInput = styled.div`
   margin-top: 150px;
 `
 
+
 function HomePage(){
+  const [todo, setTodo] = useState('')
+  const handleForm = (event) => {
+    event.preventDefault()
+    console.log(todo)
+  }
   return(
     <div>
       <Background>          
-        <CardInput>
+        <CardInput onSubmit={handleForm}>
             <Checkbox />
             <ControlledTextarea
-              type="text"
-              name="new_task" 
-              id="new_task" 
-              placeholder="Create a new todo..."
-              />
+                type="text"
+                label="New_Todo" 
+                placeholder="Create a new todo..."
+                onChange={(event) => {setTodo(event.target.value)}}
+            />
         </CardInput>
       </Background>
     </div>
