@@ -4,7 +4,7 @@ import Textarea from './Textarea'
 
 
 
-function ControlledTextarea ({name, defaultValue ='', ...props}){
+function ControlledTextarea ({...props}){
   return(
     <Textarea {...props} />
   )
