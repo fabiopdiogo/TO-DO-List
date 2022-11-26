@@ -1,8 +1,13 @@
 import styled from "styled-components"
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+
+import { taskSchema } from '../modules/task/task.schema'
 import Background from "../src/components/layout/Background"
 import Checkbox from "../src/components/Checkbox/Checkbox"
 import ControlledTextarea from "../src/components/inputs/ControlledTextarea"
+
+import { joiResolver } from '@hookform/resolvers/joi'
 
 const CardInput = styled.form`
   display: flex;
@@ -14,23 +19,27 @@ const CardInput = styled.form`
   margin-top: 150px;
 `
 
-
 function HomePage(){
-  const [todo, setTodo] = useState('')
-  const handleForm = (event) => {
-    event.preventDefault()
-    console.log(todo)
+  const { control,register, handleSubmit, formState: { isValid }, reset } = useForm({
+    resolver: joiResolver(taskSchema),
+    mode:'all'
+  })
+  
+  const onSubmit = async (data) => {
+    console.log(data)
   }
+
   return(
     <div>
       <Background>          
-        <CardInput onSubmit={handleForm}>
+        <CardInput onSubmit={handleSubmit(onSubmit)}>
             <Checkbox />
             <ControlledTextarea
-                type="text"
-                label="New_Todo" 
+                type="text" 
+                name="text"
                 placeholder="Create a new todo..."
-                onChange={(event) => {setTodo(event.target.value)}}
+                control={control}
+                maxLength="65"
             />
         </CardInput>
       </Background>
