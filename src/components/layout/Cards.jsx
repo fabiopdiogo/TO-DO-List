@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+import Checkbox from "../Checkbox/Checkbox"
+
 const CardInput = styled.div`
   display: flex;
   width: 600px;
@@ -11,10 +13,11 @@ const CardInput = styled.div`
   border-bottom: solid;  
   border-color: grey;
 `
-function Post (){
+function Post ({text}){
   return(
   <CardInput>
-    ghtfyui
+    <Checkbox/>
+    {text}
   </CardInput>
   )  
 }
