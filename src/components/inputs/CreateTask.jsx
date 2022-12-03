@@ -18,16 +18,19 @@ const CardInput = styled.form`
 `
 
 
-function CreateTask({todoHandler}){
+function CreateTask({addTodo}){
   const { control, register, handleSubmit, formState: { isValid }, reset } = useForm({
     resolver: joiResolver(taskSchema)
   })
  
   const [text, setText] = useState(null)
+  const [id, setId] = useState(0)
 
   const onSubmit = async (data) =>{   
-     setText(data.todo)
-     todoHandler(text)
+     const todoObj = { text: data.todo, id: id }
+     setId(id + 1)
+     addTodo(todoObj)
+     reset()
   }
   return(
     <CardInput onSubmit={handleSubmit(onSubmit)}>

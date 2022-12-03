@@ -8,19 +8,27 @@ import Background from "../src/components/layout/Background"
 function HomePage(){
  
   const [todos, setTodos] = useState([]);
-
-  const todoHandler = (todo) => {
+  const addTodo = (todo) => {
     setTodos([...todos,todo])    
     console.log(todo)
   };
 
+  const deleteTodo = (id) => {   
+    var filtered = todos.filter((todo) => todo.id != id)
+    setTodos(filtered)
+  }
+
  return(
     <div>
       <Background>          
-        <CreateTask todoHandler={todoHandler}/>
+        <CreateTask addTodo={addTodo}/>
         {
           todos.map((todo) =>(
-            <Cards/>
+            <Cards
+             todo={todo}
+             key={todo.id}
+             deleteTodo={deleteTodo}
+            />
           ))
         }
       </Background>
