@@ -1,9 +1,10 @@
 import styled from "styled-components"
+import { useState } from 'react'
 
 import Checkbox from "../Checkbox/Checkbox"
 import Delete from "../Delete/Delete"
 
-const CardInput = styled.div`
+const Card = styled.div`
   display: flex;
   justify-content: space-between;
   width: 600px;
@@ -11,17 +12,31 @@ const CardInput = styled.div`
   background-color: white;  
   border-radius: 8px 8px 0 0;
   align-items: center;
-  margin-top: 150px;
   border-bottom: solid;  
-  border-color: grey;
+  border-color: #666464;
+
+  color: ${props => props.checked ? '#9c9696f8' : 'black'};
+  text-decoration: ${props => props.checked ? 'line-through' : 'none'};
 `
+const Text = styled.b`
+  font-size: 14px;
+`
+
 function Post ({todo, deleteTodo}){
+
+  const [checked, setChecked] = useState(false);
+
+  const checkTodo = (checked) => {   
+    setChecked(checked)
+    console.log(checked)
+  }
+
   return(
-  <CardInput>
-    <Checkbox/>
-    {todo.text}
+  <Card checked={checked}>
+    <Checkbox todo={todo} checkTodo={checkTodo}/>
+    <Text>{todo.text}</Text>
     <Delete todo={todo} deleteTodo={deleteTodo}/>
-  </CardInput>
+  </Card>
   )  
 }
 

@@ -4,11 +4,11 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height:100vh;  
+  height:100vh;    
   background-image: url('/bg-desktop-light.jpg');    
   background-repeat: no-repeat;
   flex-direction: column;
-  background-size: 100% 40%;
+  background-size: 100% 50%;
     
 `
 

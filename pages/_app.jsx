@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     padding: 0;
     margin: 0;
-    background-color: hsl(0, 0%, 98%);
+    background-color: hsl(0, 11.764705882352903%, 93.33333333333333%);
     font-family: 'Montserrat', sans-serif;
   }
 `

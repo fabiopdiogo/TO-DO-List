@@ -15,6 +15,7 @@ const CardInput = styled.form`
   border-radius: 8px;
   align-items: center;
   margin-top: 150px;
+  margin-bottom: 50px;
 `
 
 
@@ -24,10 +25,11 @@ function CreateTask({addTodo}){
   })
  
   const [text, setText] = useState(null)
-  const [id, setId] = useState(0)
+  const [id, setId] = useState(0)  
+  const [checked, setChecked] = useState(false);
 
   const onSubmit = async (data) =>{   
-     const todoObj = { text: data.todo, id: id }
+     const todoObj = { text: data.todo, id: id, checked: checked }
      setId(id + 1)
      addTodo(todoObj)
      reset()

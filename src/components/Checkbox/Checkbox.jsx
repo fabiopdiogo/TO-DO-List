@@ -8,11 +8,12 @@ import
    Text
 } from './styles';
 
-function Checkbox() {
+function Checkbox({todo,checkTodo}) {
   const [checked, setChecked] = useState(false);
    
    function handleCheckboxChange(){
       setChecked(!checked);
+      checkTodo(!checked)
    }
    return (
     <CheckboxContainer 

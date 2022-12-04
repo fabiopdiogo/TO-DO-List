@@ -11,8 +11,6 @@ const StyledContainerMenu = styled.div`
 `
 
 const Delete = ({todo, deleteTodo}) => {
-  const [show, setShow] = useState(false)
-  const menuRef = useRef(null)
   
   return (
     <StyledContainerMenu>
