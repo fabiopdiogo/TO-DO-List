@@ -8,24 +8,25 @@ import
    Text
 } from './styles';
 
-function Checkbox({todo,checkTodo}) {
-  const [checked, setChecked] = useState(false);
-   
-   function handleCheckboxChange(){
-      setChecked(!checked);
+function Checkbox({checked,checkTodo}) {
+
+   const [checked2, setChecked2] = useState(checked);
+
+   function handleCheckboxChange(){      
       checkTodo(!checked)
+      setChecked2(!checked)
    }
    return (
     <CheckboxContainer 
-      checked={checked}
+      checked={checked2}
       onClick={handleCheckboxChange}
     >
     <HiddenCheckbox 
       onChange={handleCheckboxChange}
-      checked={checked}
+      checked={checked2}
     />
     <StyledCheckbox 
-         checked={checked}
+         checked={checked2}
          onChange={handleCheckboxChange}
       >
          <img

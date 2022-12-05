@@ -22,18 +22,18 @@ const Text = styled.b`
   font-size: 14px;
 `
 
-function Post ({todo, deleteTodo}){
+function Post ({todo, deleteTodo,setCheck}){
 
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(todo.checked);
 
   const checkTodo = (checked) => {   
+    setCheck(todo.id)
     setChecked(checked)
-    console.log(checked)
   }
 
   return(
   <Card checked={checked}>
-    <Checkbox todo={todo} checkTodo={checkTodo}/>
+    <Checkbox checked={todo.checked} checkTodo={checkTodo}/>
     <Text>{todo.text}</Text>
     <Delete todo={todo} deleteTodo={deleteTodo}/>
   </Card>

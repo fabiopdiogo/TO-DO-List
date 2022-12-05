@@ -33,6 +33,7 @@ export const StyledCheckbox = styled.label`
    justify-content: center;
    align-items: center;
    background-color: ${props => props.checked ? '#97C160' : '#E5E5E5'};
+   cursor: pointer;
 
    img {
       display: ${props => props.checked ? 'flex' : 'none'};
