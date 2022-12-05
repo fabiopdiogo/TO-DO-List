@@ -63,8 +63,11 @@ function HomePage(){
         var value = todo.checked
         todo.checked = !value
       }
-    })
-    
+    })    
+  }
+  const clearCompleted = () => {   
+    var filtered = todos.filter((todo) => todo.checked != true)
+    setTodos(filtered)
   }
   const showTodos = (value) => {  
     if(value == 'All'){
@@ -106,12 +109,12 @@ function HomePage(){
                 var aux = todo.checked
                 console.log(aux === false)
                 if(aux === false){                  
-                  <Cards
+                  return(<Cards
                     todo={todo}
                     key={todo.id}
                     deleteTodo={deleteTodo}
                     setCheck={setCheck}
-                  />
+                  />)
                 }      
               })
             }    
@@ -122,12 +125,12 @@ function HomePage(){
                 var aux = todo.checked
                 console.log(aux === true)
                 if(aux === true){                  
-                  <Cards
+                  return(<Cards
                   todo={todo}
                   key={todo.id}
                   deleteTodo={deleteTodo}
                   setCheck={setCheck}
-                  />
+                  />)
                 }           
                 
               })
@@ -140,7 +143,7 @@ function HomePage(){
                     <Ativos onClick={() => showTodos('Active')}>Ativos</Ativos>
                     <Feitos onClick={() => showTodos('Done')}>Feitos</Feitos>
                 </Mid>
-                <Clear>Limpar Feitos</Clear>
+                <Clear onClick={() => clearCompleted()}>Limpar Feitos</Clear>
               </Bottom>
             }
           
