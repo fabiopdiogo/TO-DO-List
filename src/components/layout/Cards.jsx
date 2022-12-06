@@ -9,7 +9,7 @@ const Card = styled.div`
   justify-content: space-between;
   width: 600px;
   height: 60px;
-  background-color: white;  
+  background-color: ${props => props.theme.white}; ;  
   border-radius: 8px 8px 0 0;
   align-items: center;
   border-bottom: solid;  

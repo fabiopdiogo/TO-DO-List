@@ -1,13 +1,7 @@
 const theme = {
-  primary: hsl(220, 98, 61),
-  primaryHover: '#7029A8',
-  inputBackground: '#F5F5F5',
-  inputBorder: '#E6E6E6',
-  background: '#ECECEC',
-  black: '#3A3A3A',
+  lightBackground: '#E5E5E5',
   white: '#FFFFFF',
-  error: 'red',
-  disabled: 'grey',
+  blackBackground: '#3A3A3A',  
 }
 
 export default theme

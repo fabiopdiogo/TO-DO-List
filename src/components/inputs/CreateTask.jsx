@@ -11,10 +11,9 @@ const CardInput = styled.form`
   display: flex;
   width: 600px;
   height: 60px;
-  background-color: white;  
+  background-color: ${props => props.theme.white};   
   border-radius: 8px;
   align-items: center;
-  margin-top: 150px;
   margin-bottom: 50px;
 `
 

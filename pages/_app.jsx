@@ -1,10 +1,12 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle,ThemeProvider } from 'styled-components'
+
+import theme from '../src/theme'
 
 const GlobalStyle = createGlobalStyle`
   body{
     padding: 0;
     margin: 0;
-    background-color: hsl(0, 11.764705882352903%, 93.33333333333333%);
+   
     font-family: 'Montserrat', sans-serif;
   }
 `
@@ -13,9 +15,11 @@ function App ({ Component, pageProps }) {
   
   return (
     <>
-        <GlobalStyle />
-        <Component {...pageProps} />
-    </>    
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  </>    
   )
 }
 

@@ -4,8 +4,14 @@ import { useState } from 'react'
 import CreateTask from "../src/components/inputs/CreateTask"
 import Cards from "../src/components/layout/Cards"
 import Background from "../src/components/layout/Background"
+import Modo from "../src/components/Mode/Mode"
 
-const TodosContainer = styled.div`
+  const Main = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+  `
+  const TodosContainer = styled.div`
     display: flex;
     flex-direction: column;
   `
@@ -15,7 +21,7 @@ const TodosContainer = styled.div`
     align-items: center;
     width: 600px;
     height: 60px;
-    background-color: white;  
+    background-color: ${props => props.theme.white};  
     border-radius: 0 0 8px 8px ;    
   `
   const ItemsLeft = styled.b`
@@ -40,6 +46,14 @@ const TodosContainer = styled.div`
     margin-right:10px;
     cursor: pointer;    
   `
+  const H1 = styled.h1`
+    font-size: 70px;
+    font-weight: bold;
+  `
+  const Header = styled.div`
+    display: flex;
+    justify-content: space-between;
+  `
 
 function HomePage(){
  
@@ -47,6 +61,12 @@ function HomePage(){
   const [all, setAll] = useState(true);
   const [active, setActive] = useState(false);
   const [done, setDone] = useState(false);
+  const [mode, setMode] = useState(true);
+
+  const handleMode = () => {
+    setMode(!mode)
+    console.log(mode)    
+  };
 
   const addTodo = (todo) => {
     setTodos([...todos,todo])    
@@ -89,7 +109,12 @@ function HomePage(){
 
  return(
     <div>
-      <Background>      
+      <Background mode={mode}>      
+        <Main>
+          <Header>
+            <H1>T O D O</H1>
+            <Modo handleMode={handleMode}/>
+          </Header>          
           <CreateTask addTodo={addTodo}/>
           <TodosContainer>           
             {              
@@ -148,7 +173,8 @@ function HomePage(){
             }
           
             
-          </TodosContainer>     
+          </TodosContainer> 
+        </Main>    
       </Background>
     </div>
   )

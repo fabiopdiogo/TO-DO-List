@@ -1,21 +1,13 @@
 import styled from "styled-components"
-
-const StyledContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height:100vh;    
-  background-image: url('/bg-desktop-light.jpg');    
-  background-repeat: no-repeat;
-  flex-direction: column;
-  background-size: 100% 50%;
-    
-`
+import
+{
+    StyledContainer
+} from './BackgroundStyle.jsx';
 
 
-function Background({children}){
+function Background({children,mode}){
   return(
-    <StyledContainer>
+    <StyledContainer mode={mode}>
       {children}
     </StyledContainer>
   )
