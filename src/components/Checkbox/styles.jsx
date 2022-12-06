@@ -3,7 +3,7 @@ export const CheckboxContainer = styled.div`
    width: 120px;
    height: 35px;
    padding-left: 5px;
-   margin: 0px 4px;
+   margin: 0px 5px;
    border-radius: 5px;
    
    
@@ -32,7 +32,7 @@ export const StyledCheckbox = styled.label`
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: ${props => props.checked ? '#97C160' : '#E5E5E5'};
+   background-color: ${props => props.checked ? 'hsl(280, 87%, 65%)' : '#E5E5E5'};
    cursor: pointer;
 
    img {

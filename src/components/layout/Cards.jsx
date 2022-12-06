@@ -18,7 +18,8 @@ const Card = styled.div`
   color: ${props => props.checked ? '#9c9696f8' : 'black'};
   text-decoration: ${props => props.checked ? 'line-through' : 'none'};
 `
-const Text = styled.b`
+const Text = styled.b`  
+  margin-right: 450px;
   font-size: 14px;
 `
 
