@@ -9,7 +9,7 @@ import Modo from "../src/components/Mode/Mode"
   const Main = styled.div`
     display: flex;
     flex-direction: column;
-    padding-bottom: 100px;
+    margin-bottom: 1000px;
   `
   const TodosContainer = styled.div`
     display: flex;
@@ -21,7 +21,8 @@ import Modo from "../src/components/Mode/Mode"
     align-items: center;
     width: 600px;
     height: 60px;
-    background-color: ${props => props.theme.white};  
+    background-color: ${props => props.mode ? props.theme.white : props.theme.blackCard};
+    color: ${props => props.mode ? props.theme.blackCard : props.theme.white};
     border-radius: 0 0 8px 8px ;    
   `
   const ItemsLeft = styled.b`
@@ -113,9 +114,9 @@ function HomePage(){
         <Main>
           <Header>
             <H1>T O D O</H1>
-            <Modo handleMode={handleMode}/>
+            <Modo handleMode={handleMode} mode={mode}/>
           </Header>          
-          <CreateTask addTodo={addTodo}/>
+          <CreateTask addTodo={addTodo} mode={mode}/>
           <TodosContainer>           
             {              
               all && todos.map((todo) =>(
@@ -124,6 +125,7 @@ function HomePage(){
                 key={todo.id}
                 deleteTodo={deleteTodo}
                 setCheck={setCheck}
+                mode={mode}
                 />
               ))
             }
@@ -161,7 +163,7 @@ function HomePage(){
               })
             }                    
             {              
-              <Bottom>          
+              <Bottom mode={mode}>          
                 <ItemsLeft>{todos.length} pendentes </ItemsLeft>
                 <Mid>
                     <Todos onClick={() => showTodos('All')}>Todos</Todos>

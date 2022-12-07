@@ -9,21 +9,22 @@ const Card = styled.div`
   justify-content: space-between;
   width: 600px;
   height: 60px;
-  background-color: ${props => props.theme.white}; ;  
+  background-color:${props => props.mode ? props.theme.white : props.theme.blackCard};
   border-radius: 8px 8px 0 0;
   align-items: center;
   border-bottom: solid;  
-  border-color: #666464;
-
-  color: ${props => props.checked ? '#9c9696f8' : 'black'};
+  border-color: #666464;  
+`
+const Text = styled.p`  
+  margin-right: 450px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px; 
+  
+  color: ${props => props.colorText};  
   text-decoration: ${props => props.checked ? 'line-through' : 'none'};
 `
-const Text = styled.b`  
-  margin-right: 450px;
-  font-size: 14px;
-`
 
-function Post ({todo, deleteTodo,setCheck}){
+function Post ({todo, deleteTodo,setCheck,mode}){
 
   const [checked, setChecked] = useState(todo.checked);
 
@@ -32,10 +33,23 @@ function Post ({todo, deleteTodo,setCheck}){
     setChecked(checked)
   }
 
+  var colorText = () =>{
+    if(mode){
+      if(checked === true){
+        return '#9c9696f8'
+      }else 'black'      
+    }
+    else{
+      if(checked === true){
+        return '#9c9696f8'
+      }else return 'white'
+    }
+  } 
+
   return(
-  <Card checked={checked}>
+  <Card mode={mode}>
     <Checkbox checked={todo.checked} checkTodo={checkTodo}/>
-    <Text>{todo.text}</Text>
+    <Text checked={checked} colorText={colorText}>{todo.text}</Text>
     <Delete todo={todo} deleteTodo={deleteTodo}/>
   </Card>
   )  

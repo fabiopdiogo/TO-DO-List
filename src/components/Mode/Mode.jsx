@@ -11,11 +11,15 @@ const StyledContainerMenu = styled.div`
   margin-top: 80px;
 `
 
-const Mode = ({todo, handleMode}) => {
+const Mode = ({handleMode,mode}) => {
+  
+  var image = '' 
+  
+  {mode ? image = "/icon-moon.svg" : image = "/icon-sun.svg"}
   
   return (
     <StyledContainerMenu>
-      <X src="/icon-moon.svg" height="20px" onClick={() => handleMode()} />     
+      <X src={image} height="20px" onClick={() => handleMode()} />     
     </StyledContainerMenu>
   )
 }

@@ -11,14 +11,14 @@ const CardInput = styled.form`
   display: flex;
   width: 600px;
   height: 60px;
-  background-color: ${props => props.theme.white};   
+  background-color: ${props => props.mode ? props.theme.white : props.theme.blackCard};
   border-radius: 8px;
   align-items: center;
   margin-bottom: 50px;
 `
 
 
-function CreateTask({addTodo}){
+function CreateTask({addTodo,mode}){
   const { control, register, handleSubmit, formState: { isValid }, reset } = useForm({
     resolver: joiResolver(taskSchema)
   })
@@ -34,14 +34,15 @@ function CreateTask({addTodo}){
      reset()
   }
   return(
-    <CardInput onSubmit={handleSubmit(onSubmit)}>
+    <CardInput onSubmit={handleSubmit(onSubmit)} mode={mode}>
         <Checkbox />
         <ControlledTextarea
             type="text" 
             name="todo"
             control={control}
             placeholder="Create a new todo..."
-            maxLength="65"
+            maxLength="65"            
+            mode={mode}
         />       
    </CardInput>
   )
