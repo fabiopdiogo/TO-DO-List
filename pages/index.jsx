@@ -76,7 +76,6 @@ function HomePage(){
   const [active, setActive] = useState(false);
   const [done, setDone] = useState(false);
   const [mode, setMode] = useState(true);
-
   const handleMode = () => {
     setMode(!mode)
     console.log(mode)    
@@ -97,7 +96,7 @@ function HomePage(){
         var value = todo.checked
         todo.checked = !value
       }
-    })    
+    })   
   }
   const clearCompleted = () => {   
     var filtered = todos.filter((todo) => todo.checked != true)
@@ -120,7 +119,7 @@ function HomePage(){
       setDone(true)
     }
   }  
-
+  var left=0
  return(
     <div>
       <Background mode={mode}>      
@@ -144,40 +143,40 @@ function HomePage(){
             }
             {              
               active && 
-              todos.map((todo) =>{                
-                console.log(todo)                
+              todos.map((todo) =>{               
                 var aux = todo.checked
-                console.log(aux === false)
                 if(aux === false){                  
                   return(<Cards
                     todo={todo}
                     key={todo.id}
                     deleteTodo={deleteTodo}
                     setCheck={setCheck}
+                    mode={mode}
                   />)
                 }      
               })
             }    
             {              
               done && 
-              todos.map((todo) =>{
-                console.log(todo)                
+              todos.map((todo) =>{ 
                 var aux = todo.checked
-                console.log(aux === true)
                 if(aux === true){                  
                   return(<Cards
                   todo={todo}
                   key={todo.id}
                   deleteTodo={deleteTodo}
                   setCheck={setCheck}
+                  mode={mode}
                   />)
                 }           
                 
               })
-            }                    
+            }                                
             {              
               <Bottom mode={mode}>          
-                <ItemsLeft>{todos.length} pendentes </ItemsLeft>
+                <ItemsLeft>{todos.map((todo) =>{
+                  if(todo.checked === false) left = left+1
+                })} {left} pendentes</ItemsLeft>
                 <Mid>
                     <Todos onClick={() => showTodos('All')}>Todos</Todos>
                     <Ativos onClick={() => showTodos('Active')}>Ativos</Ativos>
