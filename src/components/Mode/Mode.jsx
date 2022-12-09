@@ -8,7 +8,6 @@ const X = styled.img`
 const StyledContainerMenu = styled.div`
   position: relative;  
   padding-right: 15px;
-  margin-top: 80px;
 `
 
 const Mode = ({handleMode,mode}) => {

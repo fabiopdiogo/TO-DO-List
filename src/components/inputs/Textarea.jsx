@@ -6,6 +6,7 @@ const Textarea = styled.input`
   height: 60px;  
   border:none;  
   outline: 0;
+  margin-left:30px;
   box-sizing: border-box;
   border-radius: 10px;  
   background-color: ${props => props.mode ? props.theme.white : props.theme.blackCard};

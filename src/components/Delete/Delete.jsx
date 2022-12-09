@@ -5,9 +5,8 @@ const X = styled.img`
   cursor: pointer;
 `
 
-const StyledContainerMenu = styled.div`
-  position: relative;  
-  padding-right: 15px;
+const StyledContainerMenu = styled.div` 
+  padding-right: 15px;  
 `
 
 const Delete = ({todo, deleteTodo}) => {

@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 export const CheckboxContainer = styled.div`
-   width: 120px;
-   height: 35px;
-   padding-left: 5px;
-   margin: 0px 5px;
+   margin: 0px 10px;
    border-radius: 5px;
    
    
@@ -17,6 +14,7 @@ export const HiddenCheckbox = styled.input.attrs({type: 'checkbox'})`
    height: 1px;
    margin: -1px;
    padding: 0;
+   
 `;
 
 export const Text = styled.label`

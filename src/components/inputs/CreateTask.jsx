@@ -15,6 +15,14 @@ const CardInput = styled.form`
   border-radius: 8px;
   align-items: center;
   margin-bottom: 50px;
+
+  @media (max-width: 670px){
+    width: 500px;
+  } 
+
+  @media (max-width: 530px){
+    width: 350px;
+  } 
 `
 
 
@@ -35,7 +43,7 @@ function CreateTask({addTodo,mode}){
   }
   return(
     <CardInput onSubmit={handleSubmit(onSubmit)} mode={mode}>
-        <Checkbox />
+       
         <ControlledTextarea
             type="text" 
             name="todo"

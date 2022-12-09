@@ -8,6 +8,6 @@ export const StyledContainer = styled.div`
   background-image: url(${props => props.mode ? '/bg-desktop-light.jpg' : '/bg-desktop-dark.jpg'}); 
   background-repeat: no-repeat;
   flex-direction: column;
-  background-size: 100% 50%;    
+  background-size: 100% 45%;    
   background-color:${props => props.mode ? props.theme.lightBackground : props.theme.blackBackground};
 `

@@ -23,7 +23,15 @@ import Modo from "../src/components/Mode/Mode"
     height: 60px;
     background-color: ${props => props.mode ? props.theme.white : props.theme.blackCard};
     color: ${props => props.mode ? props.theme.blackCard : props.theme.white};
-    border-radius: 0 0 8px 8px ;    
+    border-radius: 0 0 8px 8px ;   
+
+    @media (max-width: 670px){
+      width: 500px;
+    }  
+    @media (max-width: 530px){
+      width: 350px;
+
+    } 
   `
   const ItemsLeft = styled.b`
     margin-left:10px;
@@ -33,6 +41,10 @@ import Modo from "../src/components/Mode/Mode"
     display:flex;
     flex-direction: row;
     gap:25px;
+
+    @media (max-width: 530px){
+      gap:10px;
+  } 
   `
   const Todos = styled.h4`
     cursor: pointer;
@@ -48,12 +60,13 @@ import Modo from "../src/components/Mode/Mode"
     cursor: pointer;    
   `
   const H1 = styled.h1`
-    font-size: 70px;
-    font-weight: bold;
+    font-size: 40px;
+    color:${props => props.theme.white};
   `
   const Header = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
   `
 
 function HomePage(){
