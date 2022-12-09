@@ -5,6 +5,7 @@
 ## Bem vindo! 👋
 
 Este foi um projeto feito da plataforma Frontend Mentor (https://www.frontendmentor.io/)
+Link do deploy: https://to-do-list-vert-two.vercel.app/
 
 ## Sobre o projeto
 
